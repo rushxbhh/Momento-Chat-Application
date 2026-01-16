@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Momento
+
+server:
+  port: 8080
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:12345}
+      timeout: 60000
+
+      jedis:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+logging:
+  level:
+    com:
+      rushabh:
+        Momento: INFO
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
